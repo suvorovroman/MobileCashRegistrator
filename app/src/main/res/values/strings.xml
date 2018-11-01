@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Mobile Cash Registrator</string>
     <string name="action_settings">Settings</string>
+    <string name="dollar_sign">&#x24;</string>
+    <string name="euro_sign">&#x20a0;</string>
+    <string name="ruble_sign">&#x20bd;</string>
+    <string-array name="currency_sign">
+        <item>&#x20bd;</item>
+        <item>&#x20a0;</item>
+        <item>&#x24;</item>
+    </string-array>
 </resources>
