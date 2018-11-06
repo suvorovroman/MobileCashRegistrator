@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="CashMemoActivity"
+        <activity android:name="NewCashMemoActivity"
                     android:label="Cash Memo"
             />
     </application>

@@ -1,27 +1,35 @@
 package ru.finfly.mobilecashregistrator
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.view.LayoutInflaterCompat
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.zip.Inflater
 
 class MainActivity : AppCompatActivity() {
+
+    private val  viewModel:CashMemoViewModel by lazy{
+        ViewModelProviders.of(this).get(CashMemoViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        memo_list.adapter = CashMemoListAdapter(this)
+        memo_list.layoutManager = LinearLayoutManager(this)
+
         fab.setOnClickListener { view ->
-            startActivity(Intent(view.context, CashMemoActivity::class.java))
+            startActivity(Intent(view.context, NewCashMemoActivity::class.java))
         }
+
+        viewModel.memo_list?.observe(this, Observer {  })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
