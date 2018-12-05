@@ -48,17 +48,24 @@
                     android:id="@+id/currency"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd"></Spinner>
+                    android:layout_weight="3"
+                    android:textAlignment="textEnd"/>
+
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
+
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/amount"
+                        android:id="@+id/quantum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Сумма"/>
+                        android:hint="@string/quantum_label"
+                        android:inputType="numberDecimal"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textSize="36sp" />
+
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -67,7 +74,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/who"
+                    android:id="@+id/qui"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Кому/От кого"/>
@@ -79,7 +86,7 @@
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/what"
+                    android:id="@+id/quid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="За что" />
@@ -94,6 +101,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_anchor="@+id/memo_toolbar"
         app:layout_anchorGravity="right"/>
+
 </android.support.design.widget.CoordinatorLayout>

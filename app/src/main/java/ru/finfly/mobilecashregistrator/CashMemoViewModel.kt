@@ -8,8 +8,8 @@ import android.content.Context
 
 class CashMemoViewModel(application: Application):AndroidViewModel(application) {
 
-    private val repository = CashMemoRepository(application)
+    private val dao = CashMemoDatabase.getInstance(application).cashMemoDao()
 
-    val memo_list = repository.getAllMemos()
+    val list = dao.getAllMemos()
 
 }

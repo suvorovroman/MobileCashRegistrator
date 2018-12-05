@@ -15,9 +15,9 @@ abstract class CashMemoActivity: AppCompatActivity() {
         ArrayAdapter.createFromResource(
                 this,
                 R.array.currency_sign,
-                android.R.layout.simple_spinner_item
+                R.layout.currency_spinner_layout
         ).also {
-            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            it.setDropDownViewResource(R.layout.currency_spinner_layout)
             currency.adapter = it
         }
 

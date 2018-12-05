@@ -9,4 +9,5 @@
         <item>&#x20a0;</item>
         <item>&#x24;</item>
     </string-array>
+    <string name="quantum_label">Сумма</string>
 </resources>

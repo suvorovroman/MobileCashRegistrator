@@ -5,10 +5,11 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
+import kotlin.IllegalStateException
 
 @Database(entities = [CashMemo::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-abstract class CashMemoDatabase:RoomDatabase() {
+abstract class CashMemoDatabase: RoomDatabase() {
 
     abstract fun cashMemoDao(): CashMemoDao
 
@@ -16,7 +17,7 @@ abstract class CashMemoDatabase:RoomDatabase() {
 
         private var instance: CashMemoDatabase? = null
 
-        fun getInstance(context: Context):CashMemoDatabase?{
+        fun getInstance(context: Context):CashMemoDatabase{
             if(instance == null) {
                 synchronized(CashMemoDatabase::class) {
                     if(instance == null) {
@@ -27,7 +28,7 @@ abstract class CashMemoDatabase:RoomDatabase() {
                     }
                 }
             }
-            return instance
+            return instance ?: throw IllegalStateException("Failed to obtain database access")
         }
 
     }
