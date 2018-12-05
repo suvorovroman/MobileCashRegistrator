@@ -7,10 +7,11 @@ class NewCashMemoActivity:CashMemoActivity() {
 
     private inner class InsertCashMemoTask:AsyncTask<CashMemo, Void, Unit>(){
 
-        override fun doInBackground(vararg params: CashMemo?): Unit {
-            for(cash_memo in params)
-                if(cash_memo != null)
-                    CashMemoDatabase.getInstance(this@NewCashMemoActivity).cashMemoDao().insertCashMemo(cash_memo)
+        override fun doInBackground(vararg params: CashMemo) {
+            for(memo in params)
+                CashMemoDatabase.getInstance(
+                        this@NewCashMemoActivity
+                ).cashMemoDao().insertCashMemo(memo)
         }
 
     }
@@ -18,14 +19,13 @@ class NewCashMemoActivity:CashMemoActivity() {
     override fun onFab()
     {
         if(quantum.text.isNotEmpty())
-        {
             InsertCashMemoTask().execute(CashMemo(
-                    quantum = quantum.text.toString().toDouble(),
+                    quantum = quantum.text.toString().toDouble()*if(direction.isChecked) 1 else -1,
                     qui = qui.text.toString(),
-                    quid = quid.text.toString()
+                    quid = quid.text.toString(),
+                    monetae = monetae.selectedItemPosition
                 )
             )
-        }
     }
 
 }

@@ -28,6 +28,7 @@ class CashMemoListAdapter(context: Context):RecyclerView.Adapter<CashMemoListAda
         val whoText = itemView.findViewById<TextView>(R.id.who)
         val whatText = itemView.findViewById<TextView>(R.id.what)
         val lidText = itemView.findViewById<TextView>(R.id.lid)
+        val monetae = itemView.findViewById<TextView>(R.id.monetae)
 
         fun fill(cashMemo: CashMemo){
             lidText.text = cashMemo.lid.toString()
@@ -36,6 +37,7 @@ class CashMemoListAdapter(context: Context):RecyclerView.Adapter<CashMemoListAda
             whenText.text = cashMemo.cum.toString()
             whoText.text = cashMemo.qui
             whatText.text = cashMemo.quid
+            monetae.text = cashMemo.monetae.toString()
         }
     }
 

@@ -18,7 +18,7 @@ abstract class CashMemoActivity: AppCompatActivity() {
                 R.layout.currency_spinner_layout
         ).also {
             it.setDropDownViewResource(R.layout.currency_spinner_layout)
-            currency.adapter = it
+            monetae.adapter = it
         }
 
         fab.setOnClickListener {
